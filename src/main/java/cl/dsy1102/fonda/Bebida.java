@@ -1,19 +1,20 @@
 package cl.dsy1102.fonda;
 
 public abstract class Bebida {
-    private String nombre;
-    private int volumenML;
-    private int stock;
-    private boolean activo;
+    //ATRIBUTOS
+    //Uso protected porque es la clase padre (superclase)
+    protected String nombre;
+    protected int volumenML;
+    protected int stock;
 
-
-    public Bebida(String nombre, int volumenML, int stock, boolean activo) {
+    //CONSTRUCTOR
+    public Bebida(String nombre, int volumenML, int stock) {
         this.nombre = nombre;
         this.volumenML = volumenML;
         this.stock = stock;
-        this.activo = activo;
     }
-
+    //METODOS
+    //GETTER Y SETTERS
     public String getNombre() {
         return nombre;
     }
@@ -38,11 +39,14 @@ public abstract class Bebida {
         this.stock = stock;
     }
 
-    public boolean isActivo() {
-        return activo;
-    }
+    //METODOS DE COMPORTAMIENTO
+    public abstract double calcularPrecio();
 
-    public void setActivo(boolean activo) {
-        this.activo = activo;
+    public abstract String obtenerDetalle();
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 }
+
