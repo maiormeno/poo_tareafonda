@@ -1,5 +1,7 @@
 package cl.dsy1102.fonda;
 
+import java.util.*;
+
 public class BebidaSinAlcohol extends Bebida{
     //ATRIBUTOS
     private int azucarPorLitro;
@@ -25,12 +27,17 @@ public class BebidaSinAlcohol extends Bebida{
     //METODOS DE COMPORTAMIENTO
     @Override
     public double calcularPrecio() {
-        return 0;
+
+        if(azucarPorLitro <= 80) {
+            return 2000;
+        } else {
+            return 2000 * 1.10;
+        }
     }
 
     @Override
     public String obtenerDetalle() {
-        return "";
+        return "lol";
     }
 }
 

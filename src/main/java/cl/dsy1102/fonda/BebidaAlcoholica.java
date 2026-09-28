@@ -1,5 +1,7 @@
 package cl.dsy1102.fonda;
 
+import java.util.*;
+
 public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
     //ATRIBUTOS
     public int LIMITE_UNIDADES_POR_CLIENTE;
@@ -16,7 +18,7 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
         this.LIMITE_UNIDADES_POR_CLIENTE = LIMITE_UNIDADES_POR_CLIENTE;
         this.gradosAlcohol = gradosAlcohol;
         this.certificada = certificada;
-        this.ventaRestringida = false;
+        this.ventaRestringida = ventaRestringida;
 
     }
 
@@ -43,16 +45,27 @@ public class BebidaAlcoholica extends Bebida implements ConsumoResponsable{
     //METODOS DE COMPORTAMIENTO
     @Override
     public double calcularPrecio() {
-        return 0;
+
+        if(certificada == true) {
+            return 3500;
+        }else{
+            return 3500 * 1.20;
+        }
+
     }
 
     @Override
     public String obtenerDetalle() {
-        return "";
+
+        String detalle = "nombre: " + this.getNombre() + " grados de alcohol: " + this.gradosAlcohol;
+        return detalle;
+
     }
 
+
+
     public boolean tieneVentaRestringida() {
-        return false;
+        return this.ventaRestringida;
     }
 
     public void restringirVenta() {
