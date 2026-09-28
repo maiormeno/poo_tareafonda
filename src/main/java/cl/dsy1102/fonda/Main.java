@@ -37,7 +37,9 @@ public class Main {
 
         // TODO 4: solicitar las cuatro ventas indicadas en el enunciado.
 
-        //ventas(completar)
+        administrador.vender("Chicha", 1);
+
+
 
         // TODO 5: buscar por nombre "Chicha" y listar todas las bebidas.
 
@@ -47,7 +49,6 @@ public class Main {
         for(Bebida bebida: resultado) {
             System.out.println(bebida.obtenerDetalle());
         }
-
 
 
         System.out.println("Proyecto listo. Comienza por la clase Bebida.");

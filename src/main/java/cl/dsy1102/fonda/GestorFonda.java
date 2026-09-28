@@ -41,4 +41,33 @@ public class GestorFonda {
         }
         return busqueda;
     }
+
+    public void vender(String nombre, int unidades) {
+
+        for(Bebida x : this.bebidas) {
+
+            if (x.getNombre().equals(nombre)) {
+
+                if(x instanceof BebidaAlcoholica && x.getStock() > unidades && unidades <= 3) {
+
+                    if(((BebidaAlcoholica) x).tieneVentaRestringida()) {
+                        System.out.println("No se puede vender.");
+                    } else {
+                        //unidades tiene limite
+                        double precioBebidaAlcoholica = x.calcularPrecio() * unidades;
+                        System.out.println("Venta aprobada, precio final: " + precioBebidaAlcoholica);
+                    }
+                } else{
+                    if(x.getStock() > unidades) {
+                        double precioBebidaSinAlcohol = x.calcularPrecio() * unidades;
+                        System.out.println("Precio final bebida sin alcohol: " + precioBebidaSinAlcohol);
+                    } else {
+                        System.out.println("No se puede vender.");
+                    }
+
+                }
+
+            }
+        }
+    }
 }
